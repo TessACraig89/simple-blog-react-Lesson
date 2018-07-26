@@ -25,6 +25,7 @@ class Post extends Component {
         <p>Title: {this.props.title}</p>
         <p>Author: {this.props.author}</p>
         <p>Body: {this.state.body}</p>
+        <button onClick={this.handleClick}>EDIT</button>
         <p>Comments:</p>
         <ul>
           {this.props.comments.map(function(comment) {
