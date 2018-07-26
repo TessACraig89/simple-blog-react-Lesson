@@ -11,7 +11,11 @@ class Post extends Component {
         <p>Author: {this.props.author}</p>
         <p>Body: {this.props.body}</p>
         <p>Comments:</p>
-        <Comment body={this.props.comments[0]}/>
+        <ul>
+          {this.props.comments.map(function(comment) {
+             return <Comment body={comment}></Comment>
+          })}
+        </ul> 
       </div>
     );
   }
