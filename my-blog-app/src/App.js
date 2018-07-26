@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Comment from './Comment.js'
 
 class Post extends Component {
   render() {
@@ -9,7 +10,8 @@ class Post extends Component {
         <p>Title: {this.props.title}</p>
         <p>Author: {this.props.author}</p>
         <p>Body: {this.props.body}</p>
-        <p>Comments: {this.props.comments}</p>
+        <p>Comments:</p>
+        <Comment body={this.props.comments[0]}/>
       </div>
     );
   }
