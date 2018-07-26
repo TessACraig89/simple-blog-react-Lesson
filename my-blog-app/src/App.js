@@ -7,14 +7,26 @@ import Comment from './Comment.js'
 
 
 class Post extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      body: "Initial Comment"
+    }
+  }
+  handleClick (e) {
+      this.setState({
+        body: this.state.body
+      })
+  }
   render() {
+    /*map through(loop through) this components comment property's data array, for each i return a <Comment/> component element, passing in the comment body as an argument to each Comment component*/
     return (
       <div className="App">
         <p>Title: {this.props.title}</p>
         <p>Author: {this.props.author}</p>
-        <p>Body: {this.props.body}</p>
+        <p>Body: {this.state.body}</p>
         <p>Comments:</p>
-        <ul>/*map through(loop through) this components comment property's data array, for each i return a <Comment/> component element, passing in the comment body as an argument to each Comment component*/
+        <ul>
           {this.props.comments.map(function(comment) {
              return <Comment body={comment}></Comment>
           })}
