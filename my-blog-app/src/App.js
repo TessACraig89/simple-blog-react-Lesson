@@ -12,10 +12,14 @@ class Post extends Component {
     this.state = {
       body: "Initial Comment"
     }
+    // This binding is necessary to make `this` work in the callback
+    this.edit = this.edit.bind(this);
   }
-  handleClick (e) {
+  edit (e) {
+    e.preventDefault();
+    let body= prompt("Enter new body");
       this.setState({
-        body: this.state.body
+        body: body
       })
   }
   render() {
@@ -25,7 +29,7 @@ class Post extends Component {
         <p>Title: {this.props.title}</p>
         <p>Author: {this.props.author}</p>
         <p>Body: {this.state.body}</p>
-        <button onClick={this.handleClick}>EDIT</button>
+        <button onClick={this.edit}>EDIT</button>
         <p>Comments:</p>
         <ul>
           {this.props.comments.map(function(comment) {
